@@ -1,0 +1,197 @@
+.awards-recognitions{
+    text-align: center;
+}
+
+.box-logos-partner-5-col .item-partner {
+    width: 16%;
+}
+
+.box-logos-partner{
+    display: block;
+    margin-top: 0;
+}
+
+.awards-images{
+    padding: 20px 20px;
+}
+
+.box-logos-partner .item-partner
+{
+    margin-bottom: 0;
+}
+
+.card-blog-6 .card-info .card-title .link-title{
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: bold;
+    font-family: var(--tc-body-font-family);
+    color: var(--tc-secondery-500);
+    display: block;
+    margin-bottom: 25px;
+}
+
+.btn-primary-square:hover {
+    background-color: var(--tc-secondery-500) !important;
+    color: #fff !important;
+}
+
+
+.top-bar{
+    background-color: #ff0000;
+}
+
+.navbar .navbar-nav .nav-item .nav-link{
+    font-size: 18px;
+}
+
+
+
+.box-faq-single-banner {
+    background-image: url(../imgs/pages/faq/banner.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+}
+.box-faq-single-banner-inner {
+    background-image: url(../imgs/pages/faq/bg-faq.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    padding: 202px 0px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 192px;
+        width: 196px;
+        background: url(../imgs/pages/faq/icon-1.png) no-repeat center;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        height: 386px;
+        width: 395px;
+        background: url(../imgs/pages/faq/icon-2.png) no-repeat center;
+    }
+}
+.box-breadcrumb {
+    .breadcrumb {
+        li {
+            background: url(../images/arrow-breadcrumb.png) no-repeat right center;
+            padding-right: 25px;
+            a, span {
+                color: var(--tc-theme-main);
+            }
+            &:last-child {
+                background-image: none;
+            }
+        }
+    }
+}
+.box-video-center {
+    position: relative;
+    img {
+        width: 100%;
+        display: block;
+    }
+    a.btn-play {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 12;
+        margin: auto;
+        height: 93px;
+        width: 93px;
+        background-color: var(--tc-theme-main);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 80px;
+        img {
+            width: auto;
+            height: auto;
+        }
+        svg {
+            fill: var(--tc-primary-home);
+        }
+    }
+}
+.box-faq-single-2 {
+    padding: 90px 0px 120px 0px;
+    position: relative;
+    .accordion-item {
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 1px solid #ffffff85;
+    }
+    .accordion-button {
+        background-color: var(--tc-dark-950);
+        color: var(--tc-theme-main);
+        padding: 28px 30px 32px 90px;
+    }
+    .accordion-button:not(.collapsed) {
+        background-color: var(--tc-primary-home);
+    }
+    .accordion-collapse {
+        background-color: var(--tc-dark-950);
+        padding-top: 20px;
+        color: var(--tc-theme-main);
+        .accordion-body {
+            padding-bottom: 25px;
+        }
+    }
+    .accordion-button::after {
+        margin-left: auto;
+        margin-right: 0px;
+        height: 30px;
+        width: 30px;
+        background-color: var(--tc-primary-home);
+        border-radius: 50%;
+        background-image: url(../imgs/pages/faq/plus.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+    .accordion-button:not(.collapsed)::after {
+        background-image: url(../imgs/pages/faq/minus.png);
+        background-color: var(--tc-theme-main);
+    }
+}
+.box-clients-6 {
+    margin-bottom: 50px;
+    .bg-number {
+        height: 100%;
+    }
+}
+.footer-style-11-red {
+    margin-top: 320px;
+    svg {
+        fill: var(--tc-primary-home);
+    }
+    .hover-effect svg {
+        fill: var(--tc-primary-home);
+    }
+    .text-footer::before {
+        background-color: var(--tc-primary-home);
+    }
+    .footer-bottom {
+        border-top: 0px;
+    }
+}
+.footer-style-red {
+    svg {
+        fill: var(--tc-primary-home);
+    }
+    .hover-effect svg {
+        fill: var(--tc-primary-home);
+    }
+}

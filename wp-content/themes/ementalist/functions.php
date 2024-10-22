@@ -72,8 +72,14 @@ function enqueue_scripts_function() {
 	// Add CSS/JS only in Front-end.
 	if (!is_admin()) {
 		wp_enqueue_script('jquery');
-		// wp_enqueue_style ( 'bootstrapcss', 'https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css' );
-		
+		wp_enqueue_style ( 'bootstrap-min-css', get_stylesheet_directory_uri() . '/css/bootstrap.min.css' );
+		wp_enqueue_style ( 'swiper-bundle-min-css', get_stylesheet_directory_uri() . '/css/swiper-bundle.min.css' );
+		wp_enqueue_style ( 'aos-css', get_stylesheet_directory_uri() . '/css/aos.css');
+		wp_enqueue_style ( 'magnific-popup-css', get_stylesheet_directory_uri() . '/css/magnific-popup.css' );
+		wp_enqueue_style ( 'bootstrap-icons-min-css', get_stylesheet_directory_uri() . '/fonts/bootstrap-icons/bootstrap-icons.min.css' );
+		wp_enqueue_style ( 'boxicons-min-css', get_stylesheet_directory_uri() . '/fonts/boxicons/boxicons.min.css');
+		wp_enqueue_style ( 'main-css', get_stylesheet_directory_uri() . '/css/main.css');
+		wp_enqueue_style ( 'ementalist-custom-css', get_stylesheet_directory_uri() . '/css/ementalist-custom.css');	
 	}
 
     // This also removes some inline CSS variables for colors since 5.9 - global-styles-inline-css
@@ -106,12 +112,25 @@ add_action( 'wp_footer', 'add_js_footer_function' );
 function add_js_footer_function() {
 	// Load CSS/JS only on Frontend.
 	if (!is_admin()) {
-		// wp_enqueue_script( 'appear', get_stylesheet_directory_uri() . '/js/appear.js' );
-		// wp_enqueue_script( 'bootstrapjs', 'https://cdn.usebootstrap.com/bootstrap/4.1.1/js/bootstrap.min.js' );
-		// wp_enqueue_script( 'gmaps', get_stylesheet_directory_uri() . '/js/gmaps.js' );
-		// wp_enqueue_script( 'script', get_stylesheet_directory_uri() . '/js/script.js' );
 
-		
+		wp_enqueue_script( 'jquery-min-js', get_stylesheet_directory_uri() . '/js/jquery-3.7.1.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'bootstrap-bundle-min-js', get_stylesheet_directory_uri() . '/js/bootstrap.bundle.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'masonry-pkgd-min-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'swiper-bundle-min-js', get_stylesheet_directory_uri() . '/js/swiper-bundle.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'aos-js', get_stylesheet_directory_uri() . '/js/aos.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'wow-min-js', get_stylesheet_directory_uri() . '/js/wow.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'jquery-appear-js', get_stylesheet_directory_uri() . '/js/jquery.appear.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'jquery-odometer-min-js', get_stylesheet_directory_uri() . '/js/jquery.odometer.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'headhesive-min-js', get_stylesheet_directory_uri() . '/js/headhesive.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'smart-stick-nav-js', get_stylesheet_directory_uri() . '/js/smart-stick-nav.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'jquery-magnific-popup-min-js', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'gsap-min-js', get_stylesheet_directory_uri() . '/js/gsap.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'ScrollToPlugin-min-js', get_stylesheet_directory_uri() . '/js/ScrollToPlugin.min.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'ScrollTrigger-min-js', get_stylesheet_directory_uri() . '/js/ScrollTrigger.min.js', array(), '1.0.0', true );
+
+		wp_enqueue_script( 'gsap-custom-js', get_stylesheet_directory_uri() . '/js/gsap-custom.js', array(), '1.0.0', true );
+		wp_enqueue_script( 'main-js', get_stylesheet_directory_uri() . '/js/main.js', array(), '1.0.0', true );
+
 	}
 }
 
@@ -166,7 +185,7 @@ add_filter( 'media_view_settings', function ( $settings ) {
  * remove some sections of admin
  * Author: ETS.
  */
-add_action('admin_menu', 'remove_admin_menu_function');
+// add_action('admin_menu', 'remove_admin_menu_function');
 function remove_admin_menu_function() { 
 	//lower than admin
 	if(!current_user_can('activate_plugins')) {
@@ -211,57 +230,57 @@ if(!function_exists('is_blog')){
  * Register Widgets.
  * Author: ETS.
  */
-add_action('widgets_init','flexibond_widgets_init');
-function flexibond_widgets_init() {
+add_action('widgets_init','eMentalist_widgets_init');
+function eMentalist_widgets_init() {
 	register_sidebar(array(	
-		'name'          => esc_html__('Page Sidebar', 'flexibond'),
+		'name'          => esc_html__('Page Sidebar', 'eMentalist'),
 		'id'            => 'page-sidebar',
-		'description'   => esc_html__('Page Sidebar', 'flexibond'),
+		'description'   => esc_html__('Page Sidebar', 'eMentalist'),
 		'before_widget' => '<aside id="%1$s" class="widget page_sidebar %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	));
 	register_sidebar(array(	
-		'name'          => esc_html__('Footer 1 Widget Area', 'flexibond'),
+		'name'          => esc_html__('Footer 1 Widget Area', 'eMentalist'),
 		'id'            => 'footer-1',
-		'description'   => esc_html__('Footer 1', 'flexibond'),
+		'description'   => esc_html__('Footer 1', 'eMentalist'),
 		'before_widget' => '<aside id="%1$s" class="widget footer-widget text text-justify">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	));
 	register_sidebar(array(	
-		'name'          => esc_html__('Footer 2 Widget Area', 'flexibond'),
+		'name'          => esc_html__('Footer 2 Widget Area', 'eMentalist'),
 		'id'            => 'footer-2',
-		'description'   => esc_html__('Footer 2', 'flexibond'),
+		'description'   => esc_html__('Footer 2', 'eMentalist'),
 		'before_widget' => '<aside id="%1$s" class="widget footer-widget links">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	));
 	register_sidebar(array(	
-		'name'          => esc_html__('Footer 3 Widget Area', 'flexibond'),
+		'name'          => esc_html__('Footer 3 Widget Area', 'eMentalist'),
 		'id'            => 'footer-3',
-		'description'   => esc_html__('Footer 3', 'flexibond'),
+		'description'   => esc_html__('Footer 3', 'eMentalist'),
 		'before_widget' => '<aside id="%1$s" class="widget footer-widget links">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	));
 	register_sidebar(array(	
-		'name'          => esc_html__('Footer 4 Widget Area', 'flexibond'),
+		'name'          => esc_html__('Footer 4 Widget Area', 'eMentalist'),
 		'id'            => 'footer-4',
-		'description'   => esc_html__('Footer 4', 'flexibond'),
+		'description'   => esc_html__('Footer 4', 'eMentalist'),
 		'before_widget' => '<aside id="%1$s" class="widget footer-widget links">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	));
 	register_sidebar(array(	
-		'name'          => esc_html__('Copyrights Widget Area', 'flexibond'),
+		'name'          => esc_html__('Copyrights Widget Area', 'eMentalist'),
 		'id'            => 'copyrights',
-		'description'   => esc_html__('Copyrights Widget', 'flexibond'),
+		'description'   => esc_html__('Copyrights Widget', 'eMentalist'),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -504,3 +523,36 @@ function ah_breadcrumb() {
   
 }
   
+
+
+class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
+    // Other methods...
+
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $classes[] = 'nav-item'; // Adding the 'nav-item' class
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+
+        $output .= '<li' . $class_names . '>';
+
+        $attributes  = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+        $attributes .= !empty($item->target)     ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= !empty($item->xfn)        ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+        $attributes .= !empty($item->url)        ? ' href="' . esc_attr($item->url) . '"' : '';
+        
+        // Adding custom classes to <a> tag
+        $attributes .= ' class="nav-link fw-medium"';
+
+        $item_output = $args->before;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+    }
+
+    // Other methods...
+}
+

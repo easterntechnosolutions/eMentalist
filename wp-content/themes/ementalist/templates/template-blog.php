@@ -7,112 +7,88 @@ get_header();
 get_template_part('parts/page-title');
 ?>
 
-<!-- blog-classic -->
-<div class="sidebar-page-container">
-    <div class="auto-container"> 
-        <div class="row clearfix">
-            <div style="visibility: visible;" class="content-side col-lg-8 col-md-8 col-sm-12 col-xs-12 wow slideInLeft animated animated animated">
-                <?php 
-                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                    $args = array( 
-                        'post_type' => 'post', 
-                        'post_status' => 'publish',
+<?php
+// Get all categories
+$categories = get_terms(array(
+    'taxonomy' => 'category',
+    'hide_empty' => false, // Show even empty categories
+));
+
+// Check if there are categories and display clickable names
+if (!empty($categories) && !is_wp_error($categories)) {
+    $category_links = array();
+
+    foreach ($categories as $category) {
+        // Create a clickable link for each category
+        $category_links[] = '<a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a>';
+    }
+
+    // Output clickable category names in a single line, separated by commas
+    echo implode(', ', $category_links);
+}
+?>
+
+<section class="blog-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php
+                // Get all categories
+               // $categories = get_categories();
+
+                // Loop through each category
+                foreach ($categories as $category) {
+                    // echo '<h2>' . $category->name . '</h2>';
+
+                    // Query posts for the current category
+                    $args = array(
+                        'post_type' => 'post',
                         'posts_per_page' => -1,
-                        'paged' => $paged,
-                        'order' => 'DESC',
-                        'orderby' => 'date',
-                        'category_name' => 'blog'
+                        'cat' => $category->term_id,
                     );
-                    $loop = new WP_Query( $args );
-                    if ( $loop->have_posts() ) {
-                        while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                            <div class="news-style-two">
-                                <div class="inner-box">
-                                    <div class="image">
-                                        <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-                                            <?php
-                                                the_post_thumbnail('medium_large');
-                                            ?>
-                                        </a>
-                                    </div>
-                                    <div class="lower-content text-justify">
-                                        <div class="upper-box clearfix">
-                                            <div class="pull-left">
-                                                <div class="post-date">Posted: <span><?php echo get_the_date(); ?></span></div>
-                                            </div>
+                    $query = new WP_Query($args);
+
+                    // Check if there are posts
+                    if ($query->have_posts()) {
+                        echo '<div class="row">';
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                            ?>
+                            <div class="col-md-4">
+                                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <div class="post-thumbnail">
+                                            <?php the_post_thumbnail('medium'); ?>
                                         </div>
-                                        <h3>
-                                            <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-                                                <?php the_title(); ?>
-                                            </a>
-                                        </h3>
-                                        <div class="text">
-                                            <?php the_excerpt(); ?>
-                                        </div>
-                                        <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>" class="read-more blog_btn">Read More</a>
+                                    <?php endif; ?>
+                                    <div class="entry-header">
+                                        <p class="entry-author"><?php the_author(); ?></p>
+                                        <p class="entry-date"><?php echo get_the_date('d M'); ?></p>
+                                        <h3 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                     </div>
-                                </div>
-                            </div><?php
-                        endwhile;
-                    } else { ?>
-                        <h4>No Posts Found.</h4><?php
-                    } ?>
-                    <div class="pagination-wrapper centred">
-                        <ul class="pagination">
-                            <li>
-                                <?php
-                                    echo paginate_links(array(
-                                        'total' => $loop->max_num_pages,
-                                        'current' => max(1, get_query_var('paged')),
-                                        'prev_text' => '&laquo;',
-                                        'next_text' => '&raquo;',
-                                    ));
-                                ?>
-                            </li>
-                        </ul>
-                    </div><?php
-                wp_reset_postdata(); ?>
-            </div>
-            <div style="visibility: visible;" class="sidebar-side col-lg-4 col-md-4 col-sm-12 col-xs-12 wow slideInRight animated animated animated">
-                <aside class="sidebar">
-                    <div class="sidebar-widget popular-posts">
-                        <div class="sidebar-title">
-                            <h2 class="title">Recent Posts</h2>
-                        </div>
-                        <?php
-                            $args = array( 'post_type' => 'post', 
-                                'post_status' => 'publish',
-                                'posts_per_page' => 3,
-                                'nopaging' => false,
-                                'order'    => 'DESC',
-                                'orderby'  => 'date',
-                                'taxonomy' =>'category',
-                                'paged' => $paged
-                            );
-                            $loop = new WP_Query( $args ); 
-                            while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                                <article class="post">
-                                    <figure class="post-thumb">
-                                        <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-                                            <?php
-                                                the_post_thumbnail('medium_large');
-                                            ?>
-                                        </a>
-                                    </figure>
-                                    <div class="text">
-                                        <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-                                            <?php the_title(); ?>
-                                        </a>
+                                    <div class="entry-content">
+                                        <?php the_excerpt(); ?>
                                     </div>
-                                    <div class="post-info">On: <?php echo get_the_date(); ?></div>
-                                </article><?php
-                            endwhile;
-                        ?>
-                    </div>           
-                </aside>
+                                    <div class="entry-footer">
+                                        <a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
+                                    </div>
+                                </article>
+                            </div>
+                            <?php
+                        }
+                        echo '</div>';
+                    } else {
+                        echo '<p>No posts found in this category.</p>';
+                    }
+                    // Reset post data
+                    wp_reset_postdata();
+                }
+                ?>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<?php echo do_shortcode('[ivory-search id="46" title="Custom Search Form"]'); ?>
 
 <?php get_footer(); ?>
