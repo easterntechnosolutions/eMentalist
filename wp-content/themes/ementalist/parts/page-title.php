@@ -1,13 +1,14 @@
 
 <?php
 	global $post;
-	if (  get_field( 'page_title_section', $post->ID ) ) {
+	if ( $post && get_field( 'page_title_section', $post->ID ) ) {
 		$feaured_image_array = get_field( 'background_image', $post->ID  );
 		$feaured_image = $feaured_image_array['url'];
 	} else {
 		$feaured_image = get_stylesheet_directory_uri() . "/images/background/17.jpg";
 	}
 ?>
+
 
 <!-- Page Title -->
 <section class="box-faq-single-banner" style='background-image:url("<?php echo $feaured_image; ?>"); background-position:top;background-size:100%;'>
@@ -32,7 +33,7 @@
                 elseif (is_year()) :
                     echo "Year of : " . get_the_time('Y');
                 elseif (is_single()) :
-                    if ( get_field( 'page_title_section', $post->ID ) ) {
+                    if ( $post && get_field( 'page_title_section', $post->ID ) ) {
                         if ( get_field('custom_page_title', $post->ID ) ) {
                             echo get_field('custom_page_title', $post->ID );
                         } else {
@@ -60,7 +61,7 @@
                 $author_id = $post->post_author;
                 echo "Posts by " . get_the_author_meta( 'display_name', $author_id );
             else  :
-                if ( get_field( 'page_title_section', $post->ID ) ) {
+                if ( $post && get_field( 'page_title_section', $post->ID ) ) {
                     if ( get_field('custom_page_title', $post->ID ) ) {
                         echo get_field('custom_page_title', $post->ID );
                     } else {

@@ -42,8 +42,9 @@ function init_function() {
 	// Remove WordPress version from scripts
 	add_filter('script_loader_src', 'remove_wp_ver_css_js', 9999);
 
+	require_once 'email-template.php';
 	// Uncomment when need Custom Post Type for a webiste.
-	// require_once 'post-types/custom-post-type.php';
+	require_once 'post-types/custom-post-type.php';
 
 }
 
@@ -556,3 +557,19 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
     // Other methods...
 }
 
+
+
+
+add_action('phpmailer_init', 'send_smtp_email');
+function send_smtp_email($phpmailer)
+{
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.gmail.com';
+    $phpmailer->Port = '587';
+    $phpmailer->SMTPSecure = 'tls';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Username = 'noreply.shivshaktilaminates@gmail.com';
+    $phpmailer->Password = 'lvnmigrumjjailmd';
+    $phpmailer->From = 'noreply.shivshaktilaminates@gmail.com';
+    $phpmailer->FromName = 'eMentalist';
+}
