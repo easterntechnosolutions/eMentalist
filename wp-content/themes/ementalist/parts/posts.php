@@ -12,12 +12,19 @@
                         if (have_posts()) :
                             while (have_posts()) : the_post();
                         ?>
-                        <div class="post-thumbnail">
-                            <?php the_post_thumbnail('large'); ?>
-                        </div>
-                        <?php  endwhile;
-                    endif;
-                    ?>
+                            <div class="post-thumbnail">
+                                <?php 
+                                    $post_title = get_the_title();
+                                    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                                ?>
+                                <?php if ($thumbnail_url) : ?>
+                                    <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($post_title); ?>" title="<?php echo esc_attr($post_title); ?>">
+                                <?php endif; ?>
+                            </div>
+                        <?php  
+                                endwhile;
+                            endif;
+                        ?>
 
                         <div class="post-cont"> 
                             <a href="#"><span class="tag"><?php

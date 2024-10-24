@@ -142,6 +142,7 @@ function add_js_footer_function() {
 register_nav_menus(
 	array(
 		'primary-navigation' => __( 'Primary Navigation' ),
+		'resource-navigation' => __( 'Resource Menu' ),
 	)
 ); 
 
@@ -558,8 +559,20 @@ class WP_Bootstrap_Navwalker extends Walker_Nav_Menu {
 }
 
 
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+        // Define the SVG icon to be added before each menu item
+        $svg_icon = '<svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.75 11C1.50391 11 1.28516 10.918 1.12109 10.7539C0.765625 10.4258 0.765625 9.85156 1.12109 9.52344L4.86719 5.75L1.12109 2.00391C0.765625 1.67578 0.765625 1.10156 1.12109 0.773438C1.44922 0.417969 2.02344 0.417969 2.35156 0.773438L6.72656 5.14844C7.08203 5.47656 7.08203 6.05078 6.72656 6.37891L2.35156 10.7539C2.1875 10.918 1.96875 11 1.75 11Z" fill="currentColor" /></svg>';
+
+        // Construct the menu item output
+        $output .= '<a class="hover-effect paragraph-base grey-100 pt-2" href="' . esc_url($item->url) . '"';
+        $output .= $svg_icon . ' ' . esc_html($item->title);
+        $output .= '</a>';
+    }
+}
 
 
+// php mailer
 add_action('phpmailer_init', 'send_smtp_email');
 function send_smtp_email($phpmailer)
 {
@@ -573,3 +586,4 @@ function send_smtp_email($phpmailer)
     $phpmailer->From = 'noreply.shivshaktilaminates@gmail.com';
     $phpmailer->FromName = 'eMentalist';
 }
+

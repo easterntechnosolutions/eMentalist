@@ -4,6 +4,9 @@
 	if ( $post && get_field( 'page_title_section', $post->ID ) ) {
 		$feaured_image_array = get_field( 'background_image', $post->ID  );
 		$feaured_image = $feaured_image_array['url'];
+	} else if ( is_singular('team_member') ) {
+		$team_member_image = get_post_thumbnail_id();
+		$feaured_image = wp_get_attachment_image_url($team_member_image, 'full');
 	} else {
 		$feaured_image = get_stylesheet_directory_uri() . "/images/background/17.jpg";
 	}

@@ -382,3 +382,12 @@ color: #fff
     }
 }
 
+.card-team-2:hover {
+    background-image: url(../images/bg-team.png);
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+
+
+

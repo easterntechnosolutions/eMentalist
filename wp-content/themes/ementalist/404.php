@@ -1,16 +1,13 @@
 <?php get_header(); ?>
-
-<div class="main">
-	<?php //get_template_part('parts/page-title'); ?>
-	<div class="section" id="error-page">
-		<h1 class="error">404</h1>
-		<div class="page">
-			<p><?php esc_html_e('Ooops!!! The page you are looking for is not found.', 'flexibond'); ?></p>
-		</div>
-		<div class="btn-part">
-			<a class="readon" href="<?php echo esc_url(home_url('/')); ?>">Back to home</a>
+=
+<section class="position-relative overflow-hidden box-latest-blog-3 box-latest-blog-12">
+	<div class="container">
+		<div class="text-center">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/404/404.png" alt="Vatech" class="mb-30" />
+			<h3 class="heading-inter-44 secondery-500 mb-4">Oops! Page Not Found.</h3>
+			<a href="<?php echo site_url();?>" class="btn btn-primary-home btn-inter">Back to Home Page</a>
 		</div>
 	</div>
-</div><!--main-->
+</section>
 
 <?php get_footer(); ?>

@@ -24,12 +24,12 @@
 
 	<body <?php body_class(); ?>>
 		<div class="page-wrapper">
-
-
         <!--Preloader-end -->
 		<div id="myOverlay" class="overlay search-popup">
 			<div class="overlay-content">
-				<span class="search-close closebtn" onclick="closeSearch()">
+             <?php echo do_shortcode(' [ivory-search id="47" title="Default Search Form"]'); ?>
+
+				<!-- <span class="search-close closebtn" onclick="closeSearch()">
 					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
 						<path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z"></path>
 					</svg>
@@ -37,9 +37,11 @@
 				<form action="#">
 					<input type="text" placeholder="Search.." name="search" />
 					<button type="submit" class="btn btn-primary-500">Search</button>
-				</form>
+				</form> -->
 			</div>
 		</div>
+
+                
 
 			 <!--top-bar-->
 			 <section class="top-bar position-relative z-4 d-none d-lg-block">
@@ -70,22 +72,22 @@
 								</div>
 							</div>
 							<div class="box-socials">
-								<a href="https://www.facebook.com/" class=" text-reset">
+								<a href="https://www.facebook.com/ementalist" class=" text-reset">
 									<svg width="15" height="30" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M4.42808 30H9.70217V16.3125H14.1122L14.7783 10.9875H9.70217V7.575C9.70217 6.0375 10.1162 4.9875 12.2402 4.9875H14.9583V0.20625C14.4903 0.15 12.8882 0 11.0162 0C7.09212 0 4.42808 2.49375 4.42808 7.05V10.9875H0V16.3125H4.42808V30Z" fill="" />
 									</svg>
 								</a>
-								<a href="https://www.instagram.com/" class=" text-reset">
+								<a href="https://instagram.com/ementalist.outsourcing?igshid=MzRlODBiNWFlZA=="" class=" text-reset">
 									<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M15.4386 22.6965C11.1914 22.6965 7.76373 19.2591 7.76373 15C7.76373 10.7409 11.1914 7.30355 15.4386 7.30355C19.6858 7.30355 23.1135 10.7409 23.1135 15C23.1135 19.2591 19.6858 22.6965 15.4386 22.6965ZM15.4386 9.99787C12.692 9.99787 10.4505 12.2456 10.4505 15C10.4505 17.7544 12.692 20.0021 15.4386 20.0021C18.1853 20.0021 20.4267 17.7544 20.4267 15C20.4267 12.2456 18.1853 9.99787 15.4386 9.99787ZM23.4278 24.8054C22.4362 24.8054 21.6354 24.0023 21.6354 23.0079C21.6354 22.0135 22.4362 21.2104 23.4278 21.2104C24.4195 21.2104 25.2203 22.0097 25.2203 23.0079C25.2206 23.244 25.1744 23.4779 25.0844 23.6961C24.9945 23.9143 24.8624 24.1126 24.6959 24.2796C24.5294 24.4465 24.3317 24.5789 24.1141 24.6692C23.8965 24.7594 23.6633 24.8057 23.4278 24.8054ZM30.3992 15C30.3992 17.0714 30.4179 19.124 30.3019 21.1917C30.1859 23.5933 29.6396 25.7248 27.8883 27.4809C26.1333 29.2409 24.0116 29.785 21.6167 29.9013C19.5511 30.0177 17.5042 29.9989 15.4424 29.9989C13.3768 29.9989 11.3299 30.0177 9.26802 29.9013C6.87312 29.785 4.74765 29.2371 2.99639 27.4809C1.24138 25.721 0.698783 23.5933 0.582781 21.1917C0.466778 19.1203 0.485488 17.0676 0.485488 15C0.485488 12.9324 0.466778 10.876 0.582781 8.80832C0.698783 6.40669 1.24512 4.27526 2.99639 2.51907C4.7514 0.75913 6.87312 0.215012 9.26802 0.0986833C11.3336 -0.0176453 13.3805 0.00111596 15.4424 0.00111596C17.508 0.00111596 19.5548 -0.0176453 21.6167 0.0986833C24.0116 0.215012 26.1371 0.762882 27.8883 2.51907C29.6433 4.27901 30.1859 6.40669 30.3019 8.80832C30.4217 10.876 30.3992 12.9286 30.3992 15ZM27.1063 6.15152C26.8331 5.46856 26.5038 4.95822 25.9762 4.43286C25.4485 3.90375 24.9434 3.57353 24.2623 3.2996C22.294 2.51532 17.6202 2.69168 15.4386 2.69168C13.257 2.69168 8.57949 2.51531 6.61118 3.29584C5.93013 3.56978 5.42122 3.9 4.89734 4.42911C4.36971 4.95822 4.04041 5.46481 3.76724 6.14777C2.9889 8.12535 3.16478 12.8123 3.16478 15C3.16478 17.1877 2.9889 21.8784 3.76724 23.8522C4.04041 24.5352 4.36971 25.0455 4.89734 25.5709C5.42496 26.0962 5.93013 26.4302 6.61118 26.7042C8.57949 27.4847 13.257 27.3083 15.4386 27.3083C17.6202 27.3083 22.2978 27.4847 24.2661 26.7042C24.9471 26.4302 25.456 26.1 25.9799 25.5709C26.5075 25.0418 26.8368 24.5352 27.11 23.8522C27.8883 21.8784 27.7125 17.1877 27.7125 15C27.7125 12.8123 27.8883 8.12536 27.1063 6.15152Z" fill="" />
 									</svg>
 								</a>
-								<a href="https://twitter.com/" class=" text-reset">
+								<a href="https://twitter.com/ementalistsales" class=" text-reset">
 									<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M11.6468 8.46864L18.9321 0H17.2057L10.8799 7.3532L5.82741 0H0L7.6403 11.1193L0 20H1.72649L8.40678 12.2348L13.7425 20H19.57L11.6468 8.46864ZM9.28211 11.2173L8.50799 10.1101L2.34857 1.29967H5.00037L9.97109 8.40994L10.7452 9.51718L17.2066 18.7594H14.5548L9.28211 11.2173Z" fill="" />
 									</svg>
 								</a>
-								<a href="https://www.linkedin.com/" class=" text-reset">
+								<a href="https://www.linkedin.com/company/ementalist" class=" text-reset">
 									<svg width="25" height="30" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M12.7333 0C4.63278 0 0.398438 5.25 0.398438 11.0625C0.398438 13.875 1.87125 16.6875 4.26457 18.1875C5.00098 18.5625 4.81688 18.1875 5.36918 15.9375C5.36918 15.75 5.36918 15.5625 5.18508 15.375C1.87125 11.25 4.63278 3.1875 12.365 3.1875C23.5953 3.1875 21.386 18.9375 14.3902 18.9375C12.9174 19.125 11.6286 18 11.6286 16.5V15.75C12.365 13.6875 12.9174 11.8125 13.1015 9.75C13.1015 5.8125 7.3943 6.375 7.3943 11.625C7.3943 12.5625 7.5784 13.5 7.94661 14.25C7.94661 14.25 6.10559 21.9375 5.73739 23.25C5.36918 25.5 5.55329 27.75 5.92149 29.8125C5.73739 30 5.92149 30 5.92149 30H6.10559C7.3943 28.125 8.49891 26.25 9.23532 24.1875C9.41942 23.25 10.3399 19.875 10.3399 19.875C11.2604 21.1875 12.9174 21.9375 14.5743 21.9375C20.2814 21.9375 24.3317 16.875 24.3317 10.6875C24.3317 4.5 19.1768 0 12.7333 0Z" fill="" />
 									</svg>
@@ -106,7 +108,6 @@
                     $logo_full = "full";
                     $attachment_image = get_field('site_logo', 'option');
                     $logo_array = wp_get_attachment_image_src( $attachment_image['ID'], $logo_full ); ?>
-
                     <a aria-current='page' class="navbar-brand pe-4" data-dsn-text='eMentalist' href='<?php echo site_url(); ?>' rel='home'>
                         <img src="<?php echo $logo_array[0]; ?>" class="custom-logo logo-light" alt="eMentalist" title="eMentalist"/>
                     </a>
@@ -121,8 +122,7 @@
                             'walker'         => new WP_Bootstrap_Navwalker(),
                             'link_class'     => 'nav-link fw-medium' // Custom class for <a> tags
                         ));
-                        ?>
-
+                    ?>
                     <div class="d-flex align-items-center">
                         <a href="javascript:void(0)" class="btn-search-main btn-open-search">
                             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,7 +137,6 @@
                             </svg>
                         </a>
                     </div>
-
             </div>
         </nav>
         <!-- offCanvas-menu -->
@@ -150,122 +149,34 @@
                 </button>
             </div>
             <div class="offCanvas__logo mb-20">
-                <a href="index.html"><img src="assets/imgs/template/logo3.svg" alt="Logo" /></a>
+                <a href="<?php echo site_url(); ?>"><img src="<?php echo $logo_array[0]; ?>" class="custom-logo logo-light" alt="eMentalist" title="eMentalist"/>
+                </a>
             </div>
             <div class="offCanvas__side-info mb-30">
-                <ul class="navbar-nav navbar-nav-mobile">
-                    <li class="nav-item dropdown menu-item-has-children">
-                        <a class="nav-link fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="index.html">Home page 1</a></li>
-                            <li><a class="dropdown-item" href="index-2.html">Home page 2</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 3</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 4</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 5</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 6</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 7</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 8</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 9</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 10</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 11</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 12</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 13</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 14</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 15</a></li>
-                            <li><a class="dropdown-item" href="index-3.html">Home page 16</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown menu-item-has-children">
-                        <a class="nav-link fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                            <li><a class="dropdown-item" href="about-us-2.html">About Us 2</a></li>
-                            <li><a class="dropdown-item" href="about-us-3.html">About Us 3</a></li>
-                            <li><a class="dropdown-item" href="about-us-4.html">About Us 4</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown menu-item-has-children">
-                        <a class="nav-link fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="services.html">Services 01</a></li>
-                            <li><a class="dropdown-item" href="services-2.html">Services 02</a></li>
-                            <li><a class="dropdown-item" href="services-3.html">Services 03</a></li>
-                            <li><a class="dropdown-item" href="services-4.html">Services 03</a></li>
-                            <li><a class="dropdown-item" href="service-detail.html">Service Details 01</a></li>
-                            <li><a class="dropdown-item" href="service-detail-2.html">Service Details 02</a></li>
-                            <li><a class="dropdown-item" href="service-detail-3.html">Service Details 03</a></li>
-                            <li><a class="dropdown-item" href="service-detail-4.html">Service Details 04</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown menu-item-has-children">
-                        <a class="nav-link fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Projects</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="services.html">Project List</a></li>
-                            <li><a class="dropdown-item" href="services-2.html">Project Detail</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown menu-item-has-children">
-                        <a class="nav-link fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="news-grid.html">News Grid</a></li>
-                            <li><a class="dropdown-item" href="news-grid-sidebar.html">News Grid Sidebar</a></li>
-                            <li><a class="dropdown-item" href="news-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown menu-item-has-children">
-                        <a class="nav-link fw-medium" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
-                            <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
-                            <li><a class="dropdown-item" href="team.html">Team</a></li>
-                            <li><a class="dropdown-item" href="team-detail.html">Team Details</a></li>
-                            <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
-                            <li><a class="dropdown-item" href="404.html">Error 404</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary-navigation',
+                        'menu_class'     => 'navbar-nav navbar-nav-mobile gap-1 align-items-lg-center m-auto', // Custom <ul> class
+                        'container'      => 'ul',
+                        'fallback_cb'    => false,
+                        'depth'          => 2, // Controls submenu levels
+                        'walker'         => new WP_Bootstrap_Navwalker(),
+                        'link_class'     => 'nav-link fw-medium' // Custom class for <a> tags
+                    ));
+                ?>
             </div>
-            <div class="side-gallery mb-4">
-                <div class="pt-1"></div>
-                <h4 class="mt-3 mb-3">Gallery</h4>
-                <div class="grid-items">
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-1.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-2.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-3.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-4.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-5.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-6.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-7.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-8.png" alt="vatech" />
-                    </div>
-                    <div class="zoom-img rounded-3 d-inline-flex overflow-hidden">
-                        <img class="g-col-4" src="assets/imgs/pages/offcanvas/gallery-9.png" alt="vatech" />
-                    </div>
-                </div>
-            </div>
+            
             <div class="box-contactus mb-30">
-                <h5 class="title-contactus neutral-1000 mb-3">Contact Us</h5>
+                <h5 class="title-contactus neutral-1000 mb-3">Talk to Us</h5>
                 <div class="contact-info">
-                    <p class="address-2 text-md-medium neutral-1000"><strong>Address: </strong>1285 Crescent Wellington Heights, Louisville, KY 40204</p>
-                    <p class="hour-work-2 text-md-medium neutral-1000"><strong>Hours: </strong> 8:00 - 17:00, Mon - Sat</p>
-                    <p class="hour-work-2 text-md-medium neutral-1000"><strong>Phone: </strong> 01 256 986 3</p>
+                    <p class="address-2 text-md-medium neutral-1000"><strong>Address: </strong><?php 
+										$office_location = get_field('office_location', 'option'); 
+										echo $office_location; ?></p>
+                    <a href="mailto: <?php echo get_field('office_email_address', 'option'); ?>"></a><p class="hour-work-2 text-md-medium neutral-1000"><strong>Email: </strong><?php echo get_field('office_email_address', 'option'); ?></p>
+                    <a href="tel: <?php echo get_field('office_phone_number', 'option'); ?>"><p class="hour-work-2 text-md-medium neutral-1000"><strong>Phone: </strong> <?php echo get_field('office_phone_number', 'option'); ?></p></a>
                 </div>
             </div>
+
         </div>
         <div class="offCanvas__overly"></div>
 

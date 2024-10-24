@@ -14,6 +14,97 @@ get_header();
 // }
 ?>
 
+ <!--Home 1 Section 3-->
+ <section class="position-relative overflow-hidden box-process">
+            <div class="container" data-aos="fade-up">
+                <div class="row position-relative align-items-end">
+                    <div class="col-lg-7">
+                        <h6 class="title-line color-white mb-30" data-aos="fade-up">Our PROCESS</h6>
+                        <h3 class="heading-3xl color-white" data-aos="fade-up">
+                            SMART COMPANIES OUTSOURCE.
+                        </h3>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="paragraph-base gray-50" data-aos="fade-up"></p>
+                    </div>
+                </div>
+                <div class="box-list-process">
+                    <div class="item-process" data-aos="fade-up" data-aos-duration="0">
+                        <div class="card-process">
+                            <div class="card-icon">
+                                <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/images/process.png" alt="Vatech" /></div>
+                                <div class="number">01</div>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="heading-lg color-white">We impart Value</h5>
+                                <p class="button-sm desc-process">Higher value at a lesser cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-process" data-aos="fade-up" data-aos-duration="400">
+                        <div class="card-process">
+                            <div class="card-icon">
+                                <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/images/process2.png" alt="Vatech" /></div>
+                                <div class="number">02</div>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="heading-lg color-white">We deliver with Intensity</h5>
+                                <p class="button-sm desc-process">Achievements that outperform all standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-process" data-aos="fade-up" data-aos-duration="800">
+                        <div class="card-process">
+                            <div class="card-icon">
+                                <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/images/process3.png" alt="Vatech" /></div>
+                                <div class="number">03</div>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="heading-lg color-white">We create & build Relations</h5>
+                                <p class="button-sm desc-process">All our relationships are on an unflinching base of trust.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-process" data-aos="fade-up" data-aos-duration="0">
+                        <div class="card-process">
+                            <div class="card-icon">
+                                <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/images/process4.png" alt="Vatech" /></div>
+                                <div class="number">04</div>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="heading-lg color-white">We increase Productivity</h5>
+                                <p class="button-sm desc-process">The best form of performance every time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-process" data-aos="fade-up" data-aos-duration="400">
+                        <div class="card-process">
+                            <div class="card-icon">
+                                <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/images/process5.png" alt="Vatech" /></div>
+                                <div class="number">05</div>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="heading-lg color-white">We facilitate Transformation</h5>
+                                <p class="button-sm desc-process">Constant evolution through innovation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-process" data-aos="fade-up" data-aos-duration="800">
+                        <div class="card-process">
+                            <div class="card-icon">
+                                <div class="image"><img src="<?php echo get_template_directory_uri(); ?>/images/process6.png" alt="Vatech" /></div>
+                                <div class="number">06</div>
+                            </div>
+                            <div class="card-info">
+                                <h5 class="heading-lg color-white">We adapt to changing Dynamics</h5>
+                                <p class="button-sm desc-process">The ability to learn, re-learn & unlearn.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
  <!--Home 4 Section 10 -->
  <section class="position-relative overflow-hidden box-blog-4">
